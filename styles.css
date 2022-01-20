@@ -96,7 +96,7 @@ element
 */
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .g-new-line::after {
@@ -116,6 +116,11 @@ body {
     word-wrap: break-word;
 }
 
+.g-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
 
 /* Page styles
 
@@ -124,25 +129,33 @@ body {
 */
 
 #index {
-    grid-template-areas: 
-    "h h h h h h h h h h h h"
-    "m m m m m m m m m m m m"
-    "f f f f f f f f f f f f";
+    grid-template-areas:
+    "hero hero hero hero hero hero hero hero hero hero hero hero"
+    "head head head head head head head head head head head head"
+    "main main main main main main main main main main main main"
+    "foot foot foot foot foot foot foot foot foot foot foot foot";
 }
 
 #index main {
-    grid-area: m;
+    grid-area: main;
 }
 
-#index .g-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-}
-
-#index .g-flex {
+#index .flex {
     display: flex;
-    justify-content: space-evenly;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#index .flex-center-content {
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+#index h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 
@@ -152,43 +165,43 @@ body {
 #index #hero element
 */
 
+#index #hero {
+    grid-area: hero;
+
+    background-image: url(https://picsum.photos/1000/900);
+    background-size: cover;
+    color: var(--clr-neutral-white);
+    min-height: 100vh;
+}
+
 #index #header1 {
     --text: #f4f4f4;
     --text-inverse: #333;
     --background: transparent;
 
-    grid-area: h;
+    grid-area: head;
 
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    z-index: 999;
-    justify-content: space-between;
-    padding: 2em 3em;
+    padding: 2rem 0;
     transition: background 250ms ease-in;
 
     background: var(--background);
     color: var(--text);
 }
-
-#index #header1,
-#index #header1 ul {
-    flex-flow: column nowrap;
-}
-
 #index #header1 li,
 #index #header1 button {
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
 }
 
-#index #hero {
-    background-image: url(https://picsum.photos/1000/900);
-    background-size: cover;
-    color: var(--clr-neutral-white);
+#index #intro {
+    text-align: center;
 
-    min-height: 100vh;
+    padding: 4em 0.75em;
 }
+#index #intro h2 {
+    margin: 0 1em 1em 1em;
+
+}
+
 #index #mid {
     background-color: var(--clr-secondary-a);
 }
@@ -197,12 +210,30 @@ body {
     background-color: var(--clr-secondary-a);
     color: var(--clr-neutral-white);
 
-    grid-area: f;
+    grid-area: foot;
 
     text-align: center;
 }
 
 @media only screen and (min-width: 600px) {
+    
+    /* Page styles
+    
+    #index .class {}
+    #index element
+    */
+    
+    #index {
+        grid-template-areas:
+        "head head head head head head head head head head head head"
+        "hero hero hero hero hero hero hero hero hero hero hero hero"
+        "main main main main main main main main main main main main"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    }
+        
+    #index h2 {
+        font-size: 2.5rem;
+    }
 
 
     /* Section styles 
@@ -210,14 +241,28 @@ body {
     #index #hero .class {}
     #index #hero element
     */
+    #index #header1 {   
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        z-index: 999;
+
+        padding: 2em 3em;
+    }
     #index #header1,
     #index #header1 ul {
-        flex-flow: row nowrap;
+        flex-direction: row;
+        align-items: center;
     }    
     
     #index #header1 li,
     #index #header1 button {
         padding: 0 1em;
+    }
+
+    #index #intro {
+        font-size: 1.125rem;
     }
     
 }
