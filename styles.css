@@ -12,6 +12,7 @@
     --clr-neutral-white: #FFF;
     --clr-neutral-white-80-percent: rgba(255, 255, 255, 0.8);
     --clr-neutral-black: #000;
+    --clr-neutral-black-20-percent: rgba(0, 0, 0, 0.2);
     --clr-neutral-black-10-percent: rgba(0, 0, 0, 0.1);
 
     --ff-primary: Arial, Helvetica, sans-serif;
@@ -80,13 +81,13 @@ textarea {
 }
 
 
-/* However, if you don’t want to reset the form elements, it is easy to restore the default styles with the revert value and the all property */
+/* However, if you don’t want to reset the form elements, it is easy to restore the default styles with the revert value and the all property 
 input,
 textarea,
 select {
     all: revert;
 }
-
+*/
 
 
 /* Global styles 
@@ -175,10 +176,10 @@ body {
 }
 
 #index #header1 {
-    --text: #f4f4f4;
-    --text-inverse: #333;
-    --background: transparent;
-
+    --text: #333;
+    --text-inverse: #f4f4f4;
+    --background: #f4f4f4;
+    
     grid-area: head;
 
     padding: 2rem 0;
@@ -187,10 +188,56 @@ body {
     background: var(--background);
     color: var(--text);
 }
-#index #header1 li,
-#index #header1 button {
-    padding: 0.75rem 0;
+#index #header1 nav a {
+    --spacing: 1em;
+    
+    padding: calc(var(--spacing) / 2) var(--spacing);
+    display: inline-block;
+    color: inherit;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
 }
+#index #header1 nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 2px;
+    background: var(--text);
+    transform: scaleX(0);
+    transition: transform 150ms ease-in-out;
+}
+#index #header1 nav a:hover::after {
+    transform: scaleX(1);
+}
+
+#index #header1 button {
+    background: var(--background);
+    color: var(--text);
+    border: 1.5px solid var(--text);
+    border-radius: 2em;
+    margin-top: 1em;
+    transition: background 250ms ease-in-out;
+    letter-spacing: 1px;
+    padding: 0.75em 1.5em;
+}
+#index #header1 button:first-of-type:hover {
+    background: var(--text);
+    color: var(--text-inverse);
+    border-color: var(--text);
+} 
+#index #header1 button:last-of-type {
+    background: limegreen;
+    border-color: limegreen;
+    color: var(--text-inverse);
+}
+#index #header1 button:last-of-type:hover {
+    background: var(--text);
+    border-color: var(--text);
+} 
 
 #index #intro {
     text-align: center;
@@ -241,7 +288,11 @@ body {
     #index #hero .class {}
     #index #hero element
     */
-    #index #header1 {   
+    #index #header1 {
+        --text: #f4f4f4;
+        --text-inverse: #333;
+        --background: transparent;
+         
         position: fixed;
         left: 0;
         top: 0;
@@ -254,11 +305,21 @@ body {
     #index #header1 ul {
         flex-direction: row;
         align-items: center;
+    }       
+    #index #header1.nav-scrolled {
+        --text: #333;
+        --text-inverse: #f4f4f4;
+        --background: #f4f4f4;
+
+        box-shadow: 0 3px 20px var(--clr-neutral-black-20-percent);
     }    
+
+    #index #header1 nav a {
+        --spacing: 1em;
+    }
     
-    #index #header1 li,
     #index #header1 button {
-        padding: 0 1em;
+        margin-top: 0;
     }
 
     #index #intro {
