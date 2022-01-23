@@ -21,3 +21,30 @@ const heroObserver = new IntersectionObserver((entries, observer) => {
 );
 
 heroObserver.observe(hero);
+
+const sections = document.querySelectorAll("#index section");
+const navLinks = document.querySelectorAll("header nav a");
+
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            let id = entry.target.getAttribute("id");
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            document.querySelector('header nav a[href*=' + id + ']')
+                .classList.add('active');
+        }
+    });
+}, { 
+    root: null,
+    threshold: 0.5,
+    rootMargin: "-200px 0px 0px -200px"
+}
+);
+
+sections.forEach(section => {
+    sectionObserver.observe(section);
+});
