@@ -2,6 +2,9 @@
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
 */
+
+/* Changing header styling based on scroll */
+
 const header = document.getElementById("header1");
 const hero = document.getElementById("hero");
 
@@ -21,6 +24,9 @@ const heroObserver = new IntersectionObserver((entries, observer) => {
 );
 
 heroObserver.observe(hero);
+
+
+/* Making nav links active on scroll */
 
 const sections = document.querySelectorAll("#index section");
 const navLinks = document.querySelectorAll("header nav a");

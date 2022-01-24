@@ -159,6 +159,10 @@ body {
     font-weight: bold;
 }
 
+#index img {
+    width: 100%;
+}
+
 
 /* Section styles 
 
@@ -241,18 +245,89 @@ body {
 } 
 
 #index #intro {
+    grid-template-areas: 
+    "head head head head head head head head head head head head"
+    "text text text text text text text text text text text text";
     text-align: center;
 
     padding: 4em 0.75em;
+
+    background-color: var(--clr-secondary-a);
+    color: var(--clr-neutral-white);
 }
 #index #intro h2 {
-    margin: 0 1em 1em 1em;
+    grid-area: head;
 
+    margin: 0 1em 1em 1em;
+}
+#index #intro div {
+    grid-area: text;
 }
 
 #index #mid {
-    background-color: var(--clr-secondary-a);
+    grid-template-areas: 
+    "img  img  img  img  img  img  img  img  img  img  img  img "
+    "text text text text text text text text text text text text";
+
+    gap: 1rem;
+    padding: 3em 0.75em;
 }
+#index #mid img {
+    grid-area: img;
+}
+#index #mid div {
+    grid-area: text;
+}
+
+#index #end {
+    grid-template-areas: 
+    "img  img  img  img  img  img  img  img  img  img  img  img "
+    "text text text text text text text text text text text text";
+
+    gap: 1rem;
+    padding: 3em 0.75em;
+
+    background-color: var(--clr-secondary-a);
+    color: var(--clr-neutral-white);
+}
+#index #end img {
+    grid-area: img;
+}
+#index #end div {
+    grid-area: text;
+}
+
+#index #article article {
+    grid-template-areas: 
+    "img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1"
+    "....  part1 part1 part1 part1 part1 part1 part1 part1 part1 part1 ...."
+    "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt"
+    "....  part2 part2 part2 part2 part2 part2 part2 part2 part2 part2 ...."
+    "....  ....  ....  side  side  side  side  side  side  ....  ....  ...."
+    "....  part3 part3 part3 part3 part3 part3 part3 part3 part3 part3 ....";
+
+    gap: 1rem;
+    padding: 3em 0.75em;
+}
+#index #article .article-img-1 {
+    grid-area: img1;
+}
+#index #article .article-part-1 {
+    grid-area: part1;
+}
+#index #article .gray-text {
+    grid-area: grayt;
+}
+#index #article .article-part-2 {
+    grid-area: part2;
+}
+#index #article .side-text {
+    grid-area: side;
+}
+#index #article .article-part-3 {
+    grid-area: part3;
+}
+
 
 #index #footer1 {
     background-color: var(--clr-secondary-a);
@@ -261,6 +336,8 @@ body {
     grid-area: foot;
 
     text-align: center;
+    
+    padding: 3em 0.75em;
 }
 
 @media only screen and (min-width: 600px) {
@@ -328,6 +405,16 @@ body {
 
     #index #intro {
         font-size: 1.125rem;
+        color: unset;
+        background-color: unset;
     }
-    
+
+    #index #mid {
+        background-color: var(--clr-secondary-a);
+    }
+
+    #index #end {
+        color: unset;
+        background-color: unset;
+    }
 }
