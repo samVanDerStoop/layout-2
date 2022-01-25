@@ -9,6 +9,8 @@
     --clr-secondary-c: #161616;
     --clr-secondary-d: #0d0d0d;
 
+    --clr-accent-a: #666;
+
     --clr-neutral-white: #FFF;
     --clr-neutral-white-80-percent: rgba(255, 255, 255, 0.8);
     --clr-neutral-black: #000;
@@ -155,14 +157,31 @@ body {
 }
 
 #index h2 {
-    font-size: 1.5rem;
     font-weight: bold;
+    margin: 0 1em 1em 1em;
 }
 
 #index img {
     width: 100%;
 }
 
+#index p {
+    text-indent: 5px;
+    letter-spacing: 1px;
+    /*word-spacing: 1px;*/
+    line-height: 1.2;
+    margin-bottom: 1em;
+}
+
+#index .img-screen-fitted {
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
+#index .logo-text {
+    font-weight: bold;
+    margin: 1em;
+}
 
 /* Section styles 
 
@@ -224,7 +243,7 @@ body {
     color: var(--text);
     border: 1.5px solid var(--text);
     border-radius: 2em;
-    margin-top: 1em;
+    margin: 1em 0 0 1em;
     transition: background 250ms ease-in-out;
     letter-spacing: 1px;
     padding: 0.75em 1.5em;
@@ -250,18 +269,16 @@ body {
     "text text text text text text text text text text text text";
     text-align: center;
 
-    padding: 4em 0.75em;
-
-    background-color: var(--clr-secondary-a);
-    color: var(--clr-neutral-white);
+    padding: 5em 0.75em;
 }
 #index #intro h2 {
     grid-area: head;
 
-    margin: 0 1em 1em 1em;
+    font-size: 2rem;
 }
 #index #intro div {
     grid-area: text;
+    font-size: 1.5rem;
 }
 
 #index #mid {
@@ -271,12 +288,16 @@ body {
 
     gap: 1rem;
     padding: 3em 0.75em;
+    
+    background-color: var(--clr-secondary-a);
+    color: var(--clr-neutral-white);
 }
 #index #mid img {
     grid-area: img;
 }
 #index #mid div {
     grid-area: text;
+    font-size: 1.1rem;
 }
 
 #index #end {
@@ -287,14 +308,14 @@ body {
     gap: 1rem;
     padding: 3em 0.75em;
 
-    background-color: var(--clr-secondary-a);
-    color: var(--clr-neutral-white);
+    border-bottom: 1px solid var(--clr-neutral-black-10-percent);
 }
 #index #end img {
     grid-area: img;
 }
 #index #end div {
     grid-area: text;
+    font-size: 1.1rem;
 }
 
 #index #article article {
@@ -308,6 +329,8 @@ body {
 
     gap: 1rem;
     padding: 3em 0.75em;
+
+    font-size: 1.1rem;
 }
 #index #article .article-img-1 {
     grid-area: img1;
@@ -315,14 +338,23 @@ body {
 #index #article .article-part-1 {
     grid-area: part1;
 }
+#index #article h2 {
+    font-size: 1.5rem;
+}
 #index #article .gray-text {
     grid-area: grayt;
+    margin: 10px 0;
+    color: var(--clr-accent-a);
+    text-align: left;
+    border-left: 10px solid var(--clr-accent-a);
+    padding-left: 10px;
 }
 #index #article .article-part-2 {
     grid-area: part2;
 }
 #index #article .side-text {
     grid-area: side;
+    color: var(--clr-accent-a);
 }
 #index #article .article-part-3 {
     grid-area: part3;
@@ -405,16 +437,16 @@ body {
 
     #index #intro {
         font-size: 1.125rem;
-        color: unset;
-        background-color: unset;
     }
 
     #index #mid {
-        background-color: var(--clr-secondary-a);
     }
 
     #index #end {
-        color: unset;
-        background-color: unset;
+        
+    }
+
+    #index #article .side-text {
+        font-size: 0.8rem;
     }
 }
