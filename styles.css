@@ -195,7 +195,27 @@ body {
     transform: translate(0px, 0px);
 }
 
+#index section .fade-left,
+#index section .fade-right,
+#index section .fade-down {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
 
+#index section.active .fade-left {
+    opacity: 1;
+    animation: fade-left 1s ease-out;
+}
+
+#index section.active .fade-right {
+    opacity: 1;
+    animation: fade-right 1s ease-out;
+}
+
+#index section.active .fade-down {
+    opacity: 1;
+    animation: fade-down 1s ease-out;
+}
 
 /* Section styles 
 
@@ -392,6 +412,41 @@ body {
     
     padding: 3em 0.75em;
 }
+
+/* Keyframes */
+
+@keyframes fade-left {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+@keyframes fade-right {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+}
+@keyframes fade-down {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive styles */
 
 @media only screen and (min-width: 600px) {
     

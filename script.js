@@ -43,9 +43,11 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
             document.querySelector('header nav a[href*=' + id + ']')
                 .classList.add('active');
             
+                entry.target.classList.remove("reverse");
             entry.target.classList.add("active");
         } else {
             entry.target.classList.remove("active");
+            entry.target.classList.add("reverse");
         }
     });
 }, { 
