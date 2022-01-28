@@ -183,6 +183,20 @@ body {
     margin: 1em;
 }
 
+#index section .fade {
+    --fade-value: 0px, 0px;
+
+    opacity: 0;
+    transform: translate(var(--fade-value));
+    transition: all 1s ease-out;
+}
+#index section.active .fade {
+    opacity: 1;
+    transform: translate(0px, 0px);
+}
+
+
+
 /* Section styles 
 
 #index #hero .class {}
@@ -272,14 +286,21 @@ body {
     padding: 5em 0.75em;
 }
 #index #intro h2 {
+    --fade-value: 0px, -100px;
+
     grid-area: head;
 
     font-size: 2rem;
 }
 #index #intro div {
+    --fade-value: 0px, -100px;
+
+    transition: all 0.8s ease-out;
+
     grid-area: text;
     font-size: 1.5rem;
 }
+
 
 #index #mid {
     grid-template-areas: 
