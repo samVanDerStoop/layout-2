@@ -183,12 +183,13 @@ body {
     margin: 1em;
 }
 
+/* fade-animations*/
 #index section .fade {
     --fade-value: 0px, 0px;
 
     opacity: 0;
     transform: translate(var(--fade-value));
-    transition: all 1s ease-out;
+    transition: all 500ms ease-out;
 }
 #index section.active .fade {
     opacity: 1;
@@ -199,22 +200,22 @@ body {
 #index section .fade-right,
 #index section .fade-down {
     opacity: 0;
-    transition: all 1s ease-out;
+    transition: all 500ms ease-out;
 }
 
 #index section.active .fade-left {
     opacity: 1;
-    animation: fade-left 1s ease-out;
+    animation: fade-left 500ms ease-out;
 }
 
 #index section.active .fade-right {
     opacity: 1;
-    animation: fade-right 1s ease-out;
+    animation: fade-right 500ms ease-out;
 }
 
 #index section.active .fade-down {
     opacity: 1;
-    animation: fade-down 1s ease-out;
+    animation: fade-down 500ms ease-out;
 }
 
 /* Section styles 
@@ -255,6 +256,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.9rem;
+    margin: 0.5em;
 }
 #index #header1 nav a::after {
     content: "";
@@ -306,21 +308,19 @@ body {
     padding: 5em 0.75em;
 }
 #index #intro h2 {
-    --fade-value: 0px, -100px;
+    --fade-value: 0px, -50px;
 
     grid-area: head;
 
     font-size: 2rem;
 }
 #index #intro div {
-    --fade-value: 0px, -100px;
-
-    transition: all 0.8s ease-out;
+    --fade-value: 0px, -50px;
+    transition: all 350ms ease-out;
 
     grid-area: text;
     font-size: 1.5rem;
 }
-
 
 #index #mid {
     grid-template-areas: 
@@ -417,7 +417,7 @@ body {
 
 @keyframes fade-left {
     0% {
-      transform: translateX(-100px);
+      transform: translateX(-50px);
       opacity: 0;
     }
     100% {
@@ -427,7 +427,7 @@ body {
 }
 @keyframes fade-right {
     0% {
-      transform: translateX(100px);
+      transform: translateX(50px);
       opacity: 0;
     }
     100% {
@@ -437,7 +437,7 @@ body {
 }
 @keyframes fade-down {
     0% {
-        transform: translateY(-100px);
+        transform: translateY(-50px);
         opacity: 0;
     }
     100% {
@@ -455,13 +455,12 @@ body {
     #index .class {}
     #index element
     */
-    
+
     #index {
         grid-template-areas:
-        "head head head head head head head head head head head head"
         "hero hero hero hero hero hero hero hero hero hero hero hero"
-        "main main main main main main main main main main main main"
-        "foot foot foot foot foot foot foot foot foot foot foot foot";
+        "head head head main main main main main main main main main"
+        "head head head foot foot foot foot foot foot foot foot foot";
     }
         
     #index h2 {
@@ -474,6 +473,80 @@ body {
     #index #hero .class {}
     #index #hero element
     */
+
+    #index #header1 {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        max-height: 100vh;
+    }
+    #index #header1,
+    #index #header1 ul {
+        justify-content: flex-start;
+
+        align-items: center;
+    }       
+
+    #index #header1 nav a {
+        --spacing: 1em;
+    }
+    #index #header1 nav a.active::after {
+        transform: scaleX(1);
+    } 
+
+    #index #intro {
+        font-size: 1.125rem;
+    }
+
+    #index #mid {
+    }
+
+    #index #end {
+        
+    }
+
+    #index #article article {
+        grid-template-areas: 
+        "img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1"
+        "img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1  img1"
+        "....  part1 part1 part1 part1 part1 part1 part1 part1 ..... ..... ...."
+        "....  part1 part1 part1 part1 part1 part1 part1 part1 ..... ..... ...."
+        "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
+        "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
+        "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... ..... ...."
+        "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... side  side"
+        "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ...."
+        "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ....";
+    }
+    
+    #index #article .side-text {
+        margin-bottom: 10rem;
+        font-size: 0.8rem;
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+  
+    /* Page styles
+    
+    #index .class {}
+    #index element
+    */
+
+    #index {
+        grid-template-areas:
+        "head head head head head head head head head head head head"
+        "hero hero hero hero hero hero hero hero hero hero hero hero"
+        "main main main main main main main main main main main main"
+        "foot foot foot foot foot foot foot foot foot foot foot foot";
+    }
+    
+    /*Section styles 
+    #index #hero .class {}
+    #index #hero element
+    */
+
     #index #header1 {
         --text: #f4f4f4;
         --text-inverse: #333;
@@ -487,11 +560,14 @@ body {
 
         padding: 2em 3em;
     }
+
     #index #header1,
     #index #header1 ul {
         flex-direction: row;
+        justify-content: space-evenly;
         align-items: center;
-    }       
+    }    
+
     #index #header1.nav-scrolled {
         --text: #333;
         --text-inverse: #f4f4f4;
@@ -500,29 +576,5 @@ body {
         box-shadow: 0 3px 20px var(--clr-neutral-black-20-percent);
     }    
 
-    #index #header1 nav a {
-        --spacing: 1em;
-    }
-    #index #header1 nav a.active::after {
-        transform: scaleX(1);
-    }
-    
-    #index #header1 button {
-        margin-top: 0;
-    }
 
-    #index #intro {
-        font-size: 1.125rem;
-    }
-
-    #index #mid {
-    }
-
-    #index #end {
-        
-    }
-
-    #index #article .side-text {
-        font-size: 0.8rem;
-    }
 }
