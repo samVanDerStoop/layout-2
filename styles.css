@@ -246,6 +246,9 @@ body {
     background: var(--background);
     color: var(--text);
 }
+#index #header1 .logo-text {
+    margin: 1em auto;
+}
 #index #header1 nav a {
     --spacing: 1em;
     
@@ -462,11 +465,6 @@ body {
         "head head head main main main main main main main main main"
         "head head head foot foot foot foot foot foot foot foot foot";
     }
-        
-    #index h2 {
-        font-size: 2.5rem;
-    }
-
 
     /* Section styles 
     
@@ -483,25 +481,10 @@ body {
     #index #header1,
     #index #header1 ul {
         justify-content: flex-start;
-        align-items: center;
-    }       
+    }   
 
-    #index #header1 nav a {
-        --spacing: 1em;
-    }
     #index #header1 nav a.active::after {
         transform: scaleX(1);
-    } 
-
-    #index #intro {
-        font-size: 1.125rem;
-    }
-
-    #index #mid {
-    }
-
-    #index #end {
-        
     }
 
     #index #article article {
@@ -513,7 +496,7 @@ body {
         "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
         "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
         "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... ..... ...."
-        "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... side  side"
+        "....  part2 part2 part2 part2 part2 part2 part2 part2 side  side  side"
         "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ...."
         "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ....";
     }
@@ -573,11 +556,25 @@ body {
         --background: #f4f4f4;
 
         box-shadow: 0 3px 20px var(--clr-neutral-black-20-percent);
-    }    
+    }
+
+    #index #header1 .logo-text {
+        margin: 0;
+    }
+    #index #header1 nav,
+    #index #header1 button:first-of-type {
+        margin-left: auto;
+    }
+        
+    #index #intro {
+        padding: 10em 5em;
+    }
 
     #index #mid {
         grid-template-areas: 
         "img img img img img img text text text text .... ....";
+        
+        padding: 7.5em 0;
     }
     /*
     #index #mid img {
@@ -590,6 +587,8 @@ body {
     #index #end {
         grid-template-areas: 
         ".... .... text text text text img img img img img img";
+
+        padding: 7.5em 0;
     }
     #index #mid div,
     #index #end div {
@@ -605,10 +604,11 @@ body {
         "....  ....  ....  grayt grayt grayt grayt grayt grayt ....  .... ...."
         "....  ....  ....  grayt grayt grayt grayt grayt grayt ....  .... ...."
         "....  ....  ....  ....  part2 part2 part2 part2 ..... ....  .... ...."
-        "....  ....  ....  ....  part2 part2 part2 part2 side  ....  .... ...."
+        "....  ....  ....  ....  part2 part2 part2 part2 side  side  .... ...."
         "....  ....  ....  ....  part3 part3 part3 part3 ..... ....  .... ...."
         "....  ....  ....  ....  part3 part3 part3 part3 ..... ....  .... ....";
-    }
 
+        padding: 7.5em 0;
+    }
 
 }
