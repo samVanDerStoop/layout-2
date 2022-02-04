@@ -483,7 +483,6 @@ body {
     #index #header1,
     #index #header1 ul {
         justify-content: flex-start;
-
         align-items: center;
     }       
 
@@ -527,7 +526,7 @@ body {
 
 
 @media only screen and (min-width: 1024px) {
-  
+
     /* Page styles
     
     #index .class {}
@@ -563,7 +562,7 @@ body {
 
     #index #header1,
     #index #header1 ul {
-        flex-direction: row;
+        flex-flow: row wrap;
         justify-content: space-evenly;
         align-items: center;
     }    
@@ -575,6 +574,41 @@ body {
 
         box-shadow: 0 3px 20px var(--clr-neutral-black-20-percent);
     }    
+
+    #index #mid {
+        grid-template-areas: 
+        "img img img img img img text text text text .... ....";
+    }
+    /*
+    #index #mid img {
+        object-fit: cover;
+        width: 100%;
+        max-height: 100%;
+    }
+    */
+
+    #index #end {
+        grid-template-areas: 
+        ".... .... text text text text img img img img img img";
+    }
+    #index #mid div,
+    #index #end div {
+        margin: auto 0;
+    }
+
+    #index #article article {
+        grid-template-areas: 
+        "....  ....  img1  img1  img1  img1  img1  img1  img1  img1  .... ...."
+        "....  ....  img1  img1  img1  img1  img1  img1  img1  img1  .... ...."
+        "....  ....  ....  ....  part1 part1 part1 part1 ..... ....  .... ...."
+        "....  ....  ....  ....  part1 part1 part1 part1 ..... ....  .... ...."
+        "....  ....  ....  grayt grayt grayt grayt grayt grayt ....  .... ...."
+        "....  ....  ....  grayt grayt grayt grayt grayt grayt ....  .... ...."
+        "....  ....  ....  ....  part2 part2 part2 part2 ..... ....  .... ...."
+        "....  ....  ....  ....  part2 part2 part2 part2 side  ....  .... ...."
+        "....  ....  ....  ....  part3 part3 part3 part3 ..... ....  .... ...."
+        "....  ....  ....  ....  part3 part3 part3 part3 ..... ....  .... ....";
+    }
 
 
 }
