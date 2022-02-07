@@ -77,6 +77,42 @@ const sectionObserverSmallScreen = new IntersectionObserver((entries, observer) 
 }, 
 smallScreenOptions);
 
+
+/* Set up observers for lazy loading images */
+/*
+const midSectionImage = document.querySelector("#mid img");
+const endSectionImage = document.querySelector("#end img");
+const articleImageOne = document.querySelector(".article-img-1");
+const articleImageTwo = document.querySelector(".article-img-2");
+*/
+
+const images = document.querySelectorAll("[lazy-load]");
+
+const imageObserverOptions =  { 
+    root: null,
+    threshold: 0,
+    rootMargin: "0px 0px 400px 0px"
+};
+
+function lazyLoadImageObserverFunction(entries, observer) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return
+        } else {
+            const imgSource = entry.target.getAttribute("lazy-load");
+            entry.target.src = imgSource;
+
+            observer.unobserve(entry.target);
+        }
+    })
+}
+/*
+const midSectionImageObserver = new IntersectionObserver(lazyLoadImageObserverFunction, imageObserverOptions);
+*/
+
+const imagesObserver = new IntersectionObserver(lazyLoadImageObserverFunction, imageObserverOptions);
+
+
 /* Manage correct observers based on window sizing */
 
 function activateSectionObserver(sectionCollection, observer) {
@@ -131,3 +167,11 @@ largeWindowWidth.addListener(windowWidth => {
 
 
 checkWindowWidthMatches(largeWindowWidth, mediumWindowWidth);
+
+/*
+midSectionImageObserver.observe(midSectionImage);
+*/
+
+images.forEach(image => {
+    imagesObserver.observe(image);
+})

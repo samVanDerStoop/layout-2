@@ -50,6 +50,7 @@ ol, ul, menu {
 /* For images to not be able to exceed their container */
 img {
     max-width: 100%;
+    height: auto;
 }
 
 /* removes spacing between cells in tables */
@@ -393,6 +394,11 @@ body {
     border-left: 10px solid var(--clr-accent-a);
     padding-left: 10px;
 }
+#index #article .article-img-2 {
+    display: block;
+    width: unset;
+    margin: 0 auto 0.5em auto;
+}
 #index #article .article-part-2 {
     grid-area: part2;
 }
@@ -403,7 +409,6 @@ body {
 #index #article .article-part-3 {
     grid-area: part3;
 }
-
 
 #index #footer1 {
     background-color: var(--clr-secondary-a);
@@ -495,7 +500,7 @@ body {
         "....  part1 part1 part1 part1 part1 part1 part1 part1 ..... ..... ...."
         "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
         "grayt grayt grayt grayt grayt grayt grayt grayt grayt grayt ..... ...."
-        "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... ..... ...."
+        "....  part2 part2 part2 part2 part2 part2 part2 part2 ..... ....  ...."
         "....  part2 part2 part2 part2 part2 part2 part2 part2 side  side  side"
         "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ...."
         "....  part3 part3 part3 part3 part3 part3 part3 part3 ..... ..... ....";
@@ -504,6 +509,7 @@ body {
     #index #article .side-text {
         margin-bottom: 10rem;
         font-size: 0.8rem;
+        max-width: 20ch;
     }
 }
 
@@ -576,13 +582,6 @@ body {
         
         padding: 7.5em 0;
     }
-    /*
-    #index #mid img {
-        object-fit: cover;
-        width: 100%;
-        max-height: 100%;
-    }
-    */
 
     #index #end {
         grid-template-areas: 
@@ -609,6 +608,11 @@ body {
         "....  ....  ....  ....  part3 part3 part3 part3 ..... ....  .... ....";
 
         padding: 7.5em 0;
+    } 
+        
+    #index #article .article-img-2 {
+        float: left;
+        margin: 0 0.5em 0.5em 0;
     }
 
 }
