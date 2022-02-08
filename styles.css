@@ -228,8 +228,11 @@ body {
 #index #hero {
     grid-area: hero;
 
-    background-image: url(https://picsum.photos/1000/900);
+    background-image: url(images/freeilustrations-background.jpg);
     background-size: cover;
+    background-color: #6f6f6f;
+    background-blend-mode: overlay;
+
     color: var(--clr-neutral-white);
     min-height: 100vh;
 }
